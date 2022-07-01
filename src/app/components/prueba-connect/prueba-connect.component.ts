@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WebsocketService } from 'src/app/services/websocket.service';
+import { WebsocketService } from 'src/app/prueba-ws/services/websocket.service';
 
 @Component({
   selector: 'app-prueba-connect',
