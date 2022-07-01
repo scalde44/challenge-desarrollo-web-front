@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon [routerLink]="title.url">directions_car</mat-icon>
+    </button>
+    <h1>{{title.nombre}}</h1>
+    <span class="menu-spacer"></span>
+    <app-navbar [items]="items"></app-navbar>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
