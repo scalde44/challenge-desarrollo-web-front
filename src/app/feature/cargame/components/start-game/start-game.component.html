@@ -1,1 +1,6 @@
-<p>start-game works!</p>
+<div class="pista">
+    <div class="carril" *ngFor="let carro of carros">
+        <img class="carrito" [src]="getColorCarroById(carro.id)" [id]="getNombreIdCar(carro.id)" />
+        <button (click)="updatePosition(carro.id)">mover carro {{carro.id}}</button>
+    </div>
+</div>
