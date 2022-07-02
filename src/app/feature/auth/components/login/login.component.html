@@ -1,1 +1,27 @@
-<p>login works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 image-bg"></div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 div-form">
+            <div class="login-page">
+                <div class="form">
+                    <h3>CARGAME</h3>
+                    <form class="login-form">
+                        <input type="email" placeholder="email" name="email" [(ngModel)]="email" />
+                        <input type="password" placeholder="password" name="password" [(ngModel)]="password" />
+                        <button type="button" (click)="login()">login</button>
+                        <p class="message">Have you forgotten your password? <a routerLink='/auth/recovery'>Retrieve
+                                your password</a> or
+                            Are you new? <a routerLink='/auth/register'>Please, register!</a></p>
+                        <div>
+                            <a (click)="loginWithGoogle()"><img id="imggo" src="assets/icons/google.png"> Sign up with
+                                Google</a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
