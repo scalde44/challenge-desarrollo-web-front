@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MenuItem } from '../../models/menu-item.model';
 
 @Component({
@@ -11,7 +11,13 @@ export class ToolbarComponent implements OnInit {
   items: MenuItem[];
   @Input()
   title: MenuItem;
+  @Output()
+  logout: EventEmitter<boolean> = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}
+
+  exit() {
+    this.logout.emit(true);
+  }
 }
