@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegoService } from '../../services/juego.service';
 
 @Component({
   selector: 'app-start-game',
@@ -11,9 +12,11 @@ export class StartGameComponent implements OnInit {
     { id: 2, posicion: 0, color: 'amarillo' },
     { id: 3, posicion: 0, color: 'rojo' },
   ];
-  constructor() {}
+  constructor(private juegoService: JuegoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.juegoService.juegoId);
+  }
 
   updatePosition(idCar: number) {
     const divCar = document.getElementById(this.getNombreIdCar(idCar));

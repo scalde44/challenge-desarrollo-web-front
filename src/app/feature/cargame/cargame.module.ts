@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LandingGameComponent } from './components/landing-game/landing-game.component';
 import { StartGameComponent } from './components/start-game/start-game.component';
 import { JuegoService } from './services/juego.service';
+import { WebsocketService } from './services/websocket.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,6 @@ import { JuegoService } from './services/juego.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [JuegoService],
+  providers: [JuegoService, WebsocketService],
 })
 export class CargameModule {}

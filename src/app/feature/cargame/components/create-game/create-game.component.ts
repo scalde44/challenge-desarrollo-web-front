@@ -1,15 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CrearJuegoCommand } from '../../models/crear-juego-command.model';
+import { CrearJuegoCommand } from '../../models/commands/crear-juego-command.model';
 import { JuegoService } from '../../services/juego.service';
 
 const MINIMO_DE_KILOMETROS = 1;
+const MAXIMO_DE_KILOMETROS = 3;
 const PATRON_KILOMETROS = '^[0-9]+$';
 @Component({
   selector: 'app-create-game',
@@ -50,6 +46,7 @@ export class CreateGameComponent implements OnInit {
         [
           Validators.required,
           Validators.min(MINIMO_DE_KILOMETROS),
+          Validators.max(MAXIMO_DE_KILOMETROS),
           Validators.pattern(PATRON_KILOMETROS),
         ],
       ],
@@ -97,11 +94,13 @@ export class CreateGameComponent implements OnInit {
     this.jugadores.controls.forEach((fg: FormGroup) =>
       this.addJugador(fg.controls['cedula'].value, fg.controls['nombre'].value)
     );
-    this.juegoService.crearJuego(this.crearJuegoCommand).subscribe((data) => {
-      console.log(data);
-    });
-    this.datosJugadoresCompleted = true;
-    this.stepperNext();
+    this.juegoService
+      .crearJuego(this.crearJuegoCommand)
+      .subscribe((juegoId: string) => {
+        this.juegoService.juegoId = juegoId;
+        this.datosJugadoresCompleted = true;
+        this.stepperNext();
+      });
   }
 
   // Iniciar juego

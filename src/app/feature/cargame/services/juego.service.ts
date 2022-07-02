@@ -2,11 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
-import { CrearJuegoCommand } from '../models/crear-juego-command.model';
+import { CrearJuegoCommand } from '../models/commands/crear-juego-command.model';
 
 const API_ENDPOINT = environment.apiUrl;
 @Injectable()
 export class JuegoService {
+  public juegoId: string;
   constructor(public httpClient: HttpClient) {}
 
   public crearJuego(command: CrearJuegoCommand): Observable<string> {
