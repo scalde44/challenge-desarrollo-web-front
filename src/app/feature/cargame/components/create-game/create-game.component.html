@@ -1,1 +1,127 @@
-<p>create-game works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 image-bg"></div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 div-form">
+            <div class="form-create">
+                <h2>{{ title }}</h2>
+                <mat-stepper [linear]="isLinear" #stepper>
+                    <mat-step [completed]="datosJuegoCompleted">
+                        <ng-template matStepperIcon="edit">
+                            <mat-icon>done</mat-icon>
+                        </ng-template>
+                        <div class="seccion">
+                            <span class="material-icons">list_alt</span>
+                            <span class="seccion-icon">Datos iniciales</span>
+                        </div>
+                        <form [formGroup]=" juegoForm" (ngSubmit)="guardarDatosInicialesDelJuego()">
+                            <ng-template matStepLabel>Datos del juego</ng-template>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <mat-form-field appearance="standard" [style.width.%]="100">
+                                        <mat-label>Juego id</mat-label>
+                                        <input matInput id="juegoId" formControlName="juegoId" required />
+                                        <mat-error *ngIf="isValidFieldDatosJuegoForm('juegoId')">
+                                            Ingresa un id de juego
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <mat-form-field appearance="standard" [style.width.%]="100">
+                                        <mat-label>Kilometro</mat-label>
+                                        <input matInput id="kilometros" type="number" formControlName="kilometros"
+                                            min="1" required />
+                                        <mat-error *ngIf="isValidFieldDatosJuegoForm('kilometros')">
+                                            El kilometraje debe ser mayor a 0
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn-crear mt-5" type="submit" color="primary"
+                                    [disabled]="juegoForm.invalid" mat-raised-button>
+                                    Continuar
+                                </button>
+                            </div>
+                        </form>
+                    </mat-step>
+                    <mat-step [completed]="datosJugadoresCompleted">
+                        <ng-template matStepperIcon="edit">
+                            <mat-icon>done</mat-icon>
+                        </ng-template>
+                        <div class="seccion">
+                            <span class="material-icons"> person </span>
+                            <span class="seccion-icon">Jugadores</span>
+                            <span style="display:flex; justify-content:flex-end; width:100%; padding:0;">
+
+                            </span>
+                            <span class="seccion-btn"><button class="btn-crear mt-5" type="buton" color="primary"
+                                    cdkFocusInitial style="float: left;" mat-raised-button (click)="addJugadorForm()">
+                                    Agregar un jugador
+                                </button></span>
+                        </div>
+                        <form [formGroup]="jugadoresForm" (ngSubmit)="crearJuego()">
+                            <ng-template matStepLabel>Agregar jugadores</ng-template>
+                            <ng-container formArrayName="jugadores">
+                                <ng-container *ngFor="let jugadorForm of jugadores.controls; let i = index">
+                                    <form class="lesson-form-row" [formGroupName]="i">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-5">
+                                                <mat-form-field appearance="standard" [style.width.%]="100">
+                                                    <mat-label>Cedula</mat-label>
+                                                    <input matInput type="text" formControlName="cedula" required />
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-xs-12 col-md-5">
+                                                <mat-form-field appearance="standard" [style.width.%]="100">
+                                                    <mat-label>Nombre</mat-label>
+                                                    <input matInput type="text" formControlName="nombre" required />
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-xs-12 col-md-2">
+                                                <button mat-raised-button class="btn-delete" color="warn" type="button"
+                                                    (click)="deleteJugadorForm(i)" [style.width.%]="100">
+                                                    <mat-icon class="delete-btn">
+                                                        delete_forever</mat-icon>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </ng-container>
+                            </ng-container>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <button class="btn-volver mt-5" type="button" (click)="stepperPrevious()"
+                                        mat-raised-button>
+                                        Regresar
+                                    </button>
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <button class="btn-crear mt-5" type="submit" color="primary" mat-raised-button>
+                                        Continuar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </mat-step>
+                    <mat-step>
+                        <ng-template matStepLabel>Iniciar juego</ng-template>
+                        <div class="seccion">
+                            <span class="material-icons">videogame_asset</span>
+                            <span class="seccion-icon">¡A jugar!</span>
+                        </div>
+                        <div class="jugar">
+                            <h1>¡Estamos listos!</h1>
+                            <p class="mt-5">
+                                Puedes dirigirte a la sección 'Iniciar Juego' con el código
+                                {{crearJuegoCommand?.juegoId}} <em>. . . o ¡Jugar ahora!</em>
+                            </p>
+                            <button type="button" (click)="iniciarJuego()" color="primary" mat-raised-button>
+                                ¡Jugar ahora!
+                            </button>
+                        </div>
+                    </mat-step>
+                </mat-stepper>
+            </div>
+        </div>
+    </div>
+</div>

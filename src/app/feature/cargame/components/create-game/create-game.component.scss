@@ -1,0 +1,95 @@
+$prima: #3f51b5;
+$rasp: #f36a6f;
+$seed: #383838;
+$sm: 1rem;
+$md: 2.5rem;
+$lg: 4rem;
+h2 {
+  font-family: "Fontdiner Swanky";
+  font-size: $lg;
+  color: $prima;
+  text-align: center;
+}
+.image-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://w0.peakpx.com/wallpaper/926/421/HD-wallpaper-red-fast-car-race.jpg);
+  height: calc(100vh - 64px);
+  width: 100%;
+  opacity: 0.9;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+.div-form {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 64px);
+}
+.form-create {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-crear {
+  width: 100%;
+}
+
+.btn-volver {
+  width: 100%;
+  background-color: #dee2e6;
+}
+.mt-5 {
+  margin-top: 1rem;
+}
+
+.seccion {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2rem 0 1rem;
+  color: $prima;
+  &-icon {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $prima;
+    font-family: MuseoSans;
+    font-size: medium;
+  }
+}
+
+.btn-delete {
+  margin: 0;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+div.jugar {
+  text-align: center;
+  h1 {
+    font-family: "Fontdiner Swanky";
+    font-size: $lg;
+    color: $prima;
+    margin-bottom: $sm;
+  }
+  p {
+    margin-bottom: $md;
+    em {
+      font-style: italic;
+      color: $prima;
+    }
+  }
+  button {
+    font-family: "Fontdiner Swanky";
+    font-size: $sm;
+    border: none;
+  }
+}
