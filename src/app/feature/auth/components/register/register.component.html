@@ -1,1 +1,18 @@
-<p>register works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 image-bg"></div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 div-form">
+            <div class="register-page">
+                <div class="form">
+                    <h3>CARGAME</h3>
+                    <form class="login-form">
+                        <input type="email" placeholder="email" name="email" [(ngModel)]="email" />
+                        <input type="password" placeholder="password" name="password" [(ngModel)]="password" />
+                        <button type="button" (click)="register()">Register</button>
+                        <p class="message">Back to <a routerLink='/auth/login'>Login</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "login-17ac7": {
+      "hosting": {
+        "cargame": [
+          "login-17ac7"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "login-17ac7"
+  }
+}
