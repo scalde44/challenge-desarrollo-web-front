@@ -16,7 +16,17 @@ const routes: Routes = [
   {
     path: 'recovery',
     component: RestoreComponent,
-  }
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

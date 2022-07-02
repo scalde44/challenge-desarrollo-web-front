@@ -1,14 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { PruebaConnectComponent } from './components/prueba-connect/prueba-connect.component';
 import { LoginGuard } from './shared/guards/login.guard';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: PruebaConnectComponent,
-    canActivate: [LoginGuard]
-  },
   {
     path: 'auth',
     loadChildren: () =>
@@ -18,11 +12,11 @@ const routes: Routes = [
     path: 'cargame',
     loadChildren: () =>
       import('./feature/cargame/cargame.module').then((m) => m.CargameModule),
-      canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'auth',
     pathMatch: 'full',
   },
 ];

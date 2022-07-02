@@ -14,7 +14,6 @@ const routes: Routes = [
       {
         path: '',
         component: LandingGameComponent,
-
       },
       {
         path: 'create',
@@ -26,11 +25,15 @@ const routes: Routes = [
       },
       {
         path: 'historic',
-        component: HistoricGameComponent
-      }
+        component: HistoricGameComponent,
+      },
     ],
   },
-
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
   {
     path: '**',
     redirectTo: 'home',
