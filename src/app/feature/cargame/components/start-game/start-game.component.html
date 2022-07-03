@@ -1,8 +1,22 @@
 <app-start-login-game *ngIf="!juegoIniciado" [juegoId]="juegoId" (ingresar)="ingresar($event)">
 </app-start-login-game>
-<div class="pista" *ngIf="juegoIniciado">
-    <div class="carril" *ngFor="let carro of juego?.carroCreados;">
-        <img class="carrito" [src]="getColorCarroById(carro.aggregateRootId)"
-            [id]="getNombreIdCar(carro.aggregateRootId)" />
+<div class="row" *ngIf="juegoIniciado">
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 info-game">
+        <article class="box weather" *ngFor="let info of informacionJuego"  [style.height.%]="tamanioCarril-1" #carril>
+            <div class="icon bubble black">
+                <div class="spin">
+                    <img [src]="info.url">
+                </div>
+            </div>
+
+            <h1>{{info.nombre}}</h1>
+            <span class="temp">{{info.dato}}</span>
+        </article>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pista">
+        <div class="carril" *ngFor="let carro of juego?.carroCreados;" [style.height.%]="tamanioCarril" #carril>
+            <img class="carrito" [src]="getColorCarroById(carro.aggregateRootId)"
+                [id]="getNombreIdCar(carro.aggregateRootId)" #carrito />
+        </div>
     </div>
 </div>

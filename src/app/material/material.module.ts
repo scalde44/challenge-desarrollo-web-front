@@ -5,8 +5,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTableModule } from '@angular/material/table';  
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -17,7 +18,8 @@ import { MatTableModule } from '@angular/material/table';
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule,
   ],
 })
 export class MaterialModule {}
