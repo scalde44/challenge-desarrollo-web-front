@@ -19,7 +19,7 @@ export class WebsocketService {
       })
     );
   }
-  public connect(aggregateId: string) {
+  private connect(aggregateId: string) {
     if (!this.subject) {
       this.subject = this.create(`${WEBSOCKET_URL}/${aggregateId}`);
       console.log(
