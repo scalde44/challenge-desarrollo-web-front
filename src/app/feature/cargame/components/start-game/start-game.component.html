@@ -2,7 +2,7 @@
 </app-start-login-game>
 <div class="row" *ngIf="juegoIniciado">
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 info-game">
-        <article class="box weather" *ngFor="let info of informacionJuego"  [style.height.%]="tamanioCarril-1" #carril>
+        <article class="box weather" *ngFor="let info of informacionJuego"  [style.height.%]="tamanioCarril-1">
             <div class="icon bubble black">
                 <div class="spin">
                     <img [src]="info.url">
