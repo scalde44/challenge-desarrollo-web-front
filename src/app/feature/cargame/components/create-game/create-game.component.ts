@@ -7,6 +7,7 @@ import { JuegoService } from '../../services/juego.service';
 const MINIMO_DE_KILOMETROS = 1;
 const MAXIMO_DE_KILOMETROS = 3;
 const PATRON_KILOMETROS = '^[0-9]+$';
+const JUGADORES_EXACTOS = 3;
 @Component({
   selector: 'app-create-game',
   templateUrl: './create-game.component.html',
@@ -88,6 +89,10 @@ export class CreateGameComponent implements OnInit {
   }
   private addJugador(cedula: string, nombre: string) {
     this.crearJuegoCommand.addJugador(cedula, nombre);
+  }
+
+  jugadoresListos(): boolean {
+    return this.jugadores.valid && this.jugadores.length >= JUGADORES_EXACTOS;
   }
   // Metodo final de crear juego
   crearJuego() {
