@@ -1,1 +1,29 @@
-<p>historic-game works!</p>
+<div class="container">
+    <h1>{{title}}</h1>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="aggregateRootId">
+            <th mat-header-cell *matHeaderCellDef> Id del juego </th>
+            <td mat-cell *matCellDef="let element"> {{element.aggregateRootId}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="idGanador">
+            <th mat-header-cell *matHeaderCellDef> Id del jugador </th>
+            <td mat-cell *matCellDef="let element"> {{element.idGanador}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombreGanador">
+            <th mat-header-cell *matHeaderCellDef> Nombre del jugador </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombreGanador}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="colorGanador">
+            <th mat-header-cell *matHeaderCellDef> Color asignado </th>
+            <td mat-cell *matCellDef="let element"> {{element.colorGanador}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+</div>
