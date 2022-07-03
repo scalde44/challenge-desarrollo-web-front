@@ -1,45 +1,59 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthUtil } from 'src/app/shared/utils/auth-util';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
-import { Constants } from 'src/app/shared/class/constants';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  email: string = '';
+  password: string = '';
 
-  email : string = '';
-  password : string = '';   
+  constructor(
+    private authService: AuthService,
+    private messageService: MessageService
+  ) {}
 
-  constructor(private authService : AuthService, private messageService : MessageService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   register() {
-    if(this.email == ''){
-      this.messageService.alert(Constants.WARNING_ICON, Constants.TITLE, Constants.EMAIL_BLANK);
+    if (this.email == '') {
+      this.messageService.alert(
+        AuthUtil.WARNING_ICON,
+        AuthUtil.TITLE,
+        AuthUtil.EMAIL_BLANK
+      );
       return;
     }
 
-    if(!this.isEmail(this.email)) {
-      this.messageService.alert(Constants.ERROR_ICON, Constants.TITLE, Constants.EMAIL_WRONG);
-        return;
-    }
-
-    if(this.password == ''){
-      this.messageService.alert(Constants.WARNING_ICON, Constants.TITLE, Constants.PASSWORD_BLANK);
+    if (!this.isEmail(this.email)) {
+      this.messageService.alert(
+        AuthUtil.ERROR_ICON,
+        AuthUtil.TITLE,
+        AuthUtil.EMAIL_WRONG
+      );
       return;
     }
-    
-    this.authService.register(this.email, this.password);      
+
+    if (this.password == '') {
+      this.messageService.alert(
+        AuthUtil.WARNING_ICON,
+        AuthUtil.TITLE,
+        AuthUtil.PASSWORD_BLANK
+      );
+      return;
+    }
+
+    this.authService.register(this.email, this.password);
   }
 
-  isEmail(email:string):boolean {      
-    const regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/); 
-      return regexp.test(email);
+  isEmail(email: string): boolean {
+    const regexp = new RegExp(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+    return regexp.test(email);
   }
-
 }
