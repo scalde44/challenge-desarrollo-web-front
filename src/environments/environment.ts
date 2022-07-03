@@ -12,6 +12,7 @@ export const environment = {
     messagingSenderId: '934654368612',
   },
   production: false,
+  //apiUrl: 'https://cargamesofkau.herokuapp.com',
   apiUrl: 'http://localhost:8080',
 };
 

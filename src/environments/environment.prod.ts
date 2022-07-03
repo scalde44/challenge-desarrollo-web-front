@@ -7,5 +7,6 @@ export const environment = {
     authDomain: 'login-17ac7.firebaseapp.com',
     messagingSenderId: '934654368612',
   },
-  production: true
+  production: true,
+  apiUrl: 'https://cargamesofkau.herokuapp.com',
 };
