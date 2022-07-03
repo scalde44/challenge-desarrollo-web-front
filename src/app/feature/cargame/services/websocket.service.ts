@@ -12,10 +12,10 @@ export class WebsocketService {
   public messages: Subject<any>;
   constructor() {}
 
-  public prueba(aggregateId: string) {
+  public iniciar(aggregateId: string) {
     this.messages = <Subject<any>>this.connect(aggregateId).pipe(
       map((response: MessageEvent): any => {
-        return response.data;
+        return JSON.parse(response.data);
       })
     );
   }

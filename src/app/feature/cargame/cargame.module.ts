@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CargameRoutingModule } from './cargame-routing.module';
@@ -13,6 +13,7 @@ import { LandingGameComponent } from './components/landing-game/landing-game.com
 import { StartGameComponent } from './components/start-game/start-game.component';
 import { JuegoService } from './services/juego.service';
 import { WebsocketService } from './services/websocket.service';
+import { StartLoginGameComponent } from './components/start-login-game/start-login-game.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { WebsocketService } from './services/websocket.service';
     CreateGameComponent,
     HistoricGameComponent,
     LandingGameComponent,
+    StartLoginGameComponent,
   ],
   imports: [
     CommonModule,

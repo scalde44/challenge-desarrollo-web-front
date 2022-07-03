@@ -1,6 +1,8 @@
-<div class="pista">
-    <div class="carril" *ngFor="let carro of carros">
-        <img class="carrito" [src]="getColorCarroById(carro.id)" [id]="getNombreIdCar(carro.id)" />
-        <button (click)="updatePosition(carro.id)">mover carro {{carro.id}}</button>
+<app-start-login-game *ngIf="!juegoIniciado" [juegoId]="juegoId" (ingresar)="ingresar($event)">
+</app-start-login-game>
+<div class="pista" *ngIf="juegoIniciado">
+    <div class="carril" *ngFor="let carro of juego?.carroCreados;">
+        <img class="carrito" [src]="getColorCarroById(carro.aggregateRootId)"
+            [id]="getNombreIdCar(carro.aggregateRootId)" />
     </div>
 </div>

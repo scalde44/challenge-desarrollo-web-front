@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 div-form">
+            <div class="form-create">
+                <form [formGroup]="juegoIdForm" (ngSubmit)="iniciarJuego()">
+                    <h2>{{ title }}</h2>
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-8">
+                            <mat-form-field appearance="standard" [style.width.%]="100">
+                                <input matInput class="center" id="juegoId" formControlName="juegoId" required />
+                            </mat-form-field>
+                            <mat-error *ngIf="isValidFieldDatosJuegoIdForm('juegoId')">
+                                Se requiere de un código de juego para iniciar
+                            </mat-error>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-8">
+                            <button class="btn-crear mt-5" type="submit" color="primary"
+                                [disabled]="juegoIdForm.invalid" mat-raised-button>
+                                Start
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 image-bg"></div>
+    </div>
+</div>
