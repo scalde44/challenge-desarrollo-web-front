@@ -1,11 +1,11 @@
 export const environment = {
-  firebase: {
-    projectId: 'login-17ac7',
-    appId: '1:934654368612:web:36155db2abde915937b871',
-    storageBucket: 'login-17ac7.appspot.com',
-    apiKey: 'AIzaSyAcXuWjDBD9fj2mjgFfsrR5unWo8aImMuo',
-    authDomain: 'login-17ac7.firebaseapp.com',
-    messagingSenderId: '934654368612',
+  firebase : {
+    apiKey: "AIzaSyDZ_CjAMVMhwNuwLo0UcERyaQvo4AYjWB4",
+    authDomain: "cargamesofkau.firebaseapp.com",
+    projectId: "cargamesofkau",
+    storageBucket: "cargamesofkau.appspot.com",
+    messagingSenderId: "427001139833",
+    appId: "1:427001139833:web:d924e1a90e051095b4faa8"
   },
   production: true,
   apiUrl: 'https://cargamesofkau.herokuapp.com',
