@@ -4,7 +4,7 @@ import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MessageService } from 'src/app/feature/auth/services/message.service';
-import { AuthUtil } from '../utils/auth-util';
+import { AuthUtil } from '../../shared/utils/auth-util';
 
 @Injectable({
   providedIn: 'root',
