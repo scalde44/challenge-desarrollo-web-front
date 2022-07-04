@@ -4,8 +4,10 @@ import { map } from 'rxjs/internal/operators/map';
 import { AnonymousSubject, Subject } from 'rxjs/internal/Subject';
 import { Observer } from 'rxjs/internal/types';
 import { environment } from 'src/environments/environment';
-const HOST_API = new URL(environment.apiUrl).host;
-const WEBSOCKET_URL = `ws://${HOST_API}/retrieve`;
+const API_URL = new URL(environment.apiUrl);
+const HOST_API = API_URL.host;
+const WEBSOCKET_PROTOCOL = API_URL.protocol === 'https:' ? 'wss' : 'ws';
+const WEBSOCKET_URL = `${WEBSOCKET_PROTOCOL}://${HOST_API}/retrieve`;
 @Injectable()
 export class WebsocketService {
   private subject: AnonymousSubject<MessageEvent>;
